@@ -33,6 +33,25 @@ function createDrinkOrder(passenger) {
     return orderFunction;
 }
 
+// function to create a drink order dependent on ticket type
+function createDinnerOrder(passenger) {
+    var orderFunction;
+    if (passenger.ticket === "firstClass") {
+        orderFunction = function() {
+            alert("Would you like chicken or pasta?");
+        };
+    } else if (passenger.ticket === "premium") {
+        orderFunction = function() {
+            alert("Would you like a snack box or cheese plate?");
+        };
+    } else { // defaults to coach
+        orderFunction = function() {
+            alert("Would you like peanuts or pretzels?");
+        };
+    }
+    return orderFunction;
+}
+
 // main function to Serve Passengers
 function servePassengers(passengers) {
     for (var i = 0; i < passengers.length; i++) {
@@ -43,9 +62,11 @@ function servePassengers(passengers) {
 // function to Serve Customer
 function serveCustomer(passenger) {
     var getDrinkOrderFunction = createDrinkOrder(passenger);
+    var getDinnerOrderFunction = createDinnerOrder(passenger);
     getDrinkOrderFunction();
     // get dinner order
     getDrinkOrderFunction();
+    getDinnerOrderFunction();
     getDrinkOrderFunction();
     // show movie
     getDrinkOrderFunction();
