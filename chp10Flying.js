@@ -13,6 +13,16 @@ function processPassengers(passengerArray, testFunction) {
     return true;
 }
 
+// print passenger's names and paid status
+function passengerInfo(passengerObj) {
+    if(passengerObj.paid) {
+        console.log(passengerObj.name + " has paid.");
+    } else {
+        console.log(passengerObj.name + " has not paid.");
+    }
+    
+}
+
 function checkNoFlyList(passengerObj) {
     return (passengerObj.name === "Dr. Evel");
 }
@@ -30,3 +40,5 @@ var allPaid = processPassengers(passengers, checkNotPaid);
 if(!allPaid) {
     console.log("The plane can't take off: not everyone has paid.");
 }
+
+processPassengers(passengers, passengerInfo);
